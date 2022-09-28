@@ -6,12 +6,12 @@
 /*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 17:28:37 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/09/28 17:27:46 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/09/28 17:35:06 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
+# ?with love
 int	exit_window(int key, t_game *game)
 {
 	int x = 25;
