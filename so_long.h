@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:48:55 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/09/28 17:14:30 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/09/30 17:37:47 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,30 @@
 #  define SPACE_KEY 49
 # endif
 
-typedef struct	s_img
+typedef struct s_map
 {
-	void		*img_ptr;
-}           t_img;
+	int		width;
+	int 	height;
+	char	**map_split;
+	char	*map;
+	void	*player;
+	void	*block;
+	void	*coins;
+	void	*wall;
+	void	*door;
+}	       t_map;
 
 typedef struct	s_game
 {
 	void		*mlx;
     void		*win;
-    int			i;
-	int	 		x;
-	int			y;
-	t_img       img;
+	t_map		map;
+	char		**av;
+	int	 		n_coins;
+	int		 	end_game;
+	int			player;
+	int		 	exit;
+	int			error;
 }           t_game;
 
 #endif

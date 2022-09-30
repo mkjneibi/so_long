@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 22:49:55 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/08/23 16:04:42 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/09/30 19:11:42 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_itoa(int n);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+size_t	count_words(char const *s, char c);
 
 t_list	*ft_lstnew(void *mk);
 void	ft_lstadd_front(t_list **lst, t_list *new);
