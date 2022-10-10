@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:48:55 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/10 12:35:36 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:37:05 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,19 @@ typedef struct s_game
 {
 	void		*mlx;
 	void		*win;
-	t_map		map;
+	t_map		*map;
 	char		**av;
 	int			n_coins;
 	int			end_game;
 	int			player;
 	int			exit;
 	int			error;
+	int			i_width;
+	int			i_height;
+	int			x;
+	int			y;
+	int			p_x;
+	int			p_y;
 }				t_game;
 
 void	_err(t_game *game, char *str);

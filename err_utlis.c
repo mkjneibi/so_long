@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:42:10 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/05 18:14:22 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:43:10 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ void	_err(t_game *game, char *str)
 		exit(EXIT_FAILURE);
 }
 
-void	_init_map(t_map *map)
+t_map	*_init_map()
 {
+	t_map	*map;
+
 	map->height = 0;
 	map->width = 1;
 	map->player = NULL;
@@ -28,19 +30,26 @@ void	_init_map(t_map *map)
 	map->door = NULL;
 	map->block = NULL;
 	map->wall = NULL;
+	return (map);
 }
 
 void	_init(t_game *game, char **av)
 {
-	t_map	map;
+	// t_map	map;
 
 	game->av = av;
-	_init_map(&map);
+	game->map = _init_map();
 	game->player = 0;
 	game->exit = 0;
 	game->error = 0;
 	game->n_coins = 0;
 	game->end_game = 0;
+	game->i_height = 0;
+	game->i_width = 0;
+	game->x = 0;
+	game->y = 0;
+	game->p_x = 0;
+	game->p_y = 0;
 }
 
 void	check_err(t_game *game)

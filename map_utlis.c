@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:45:41 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/05 18:14:11 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:41:01 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	check_map_t(t_game **game)
 	int	x;
 
 	x = 0;
-	while ((*game)->map.m_split[0][x])
+	while ((*game)->map->m_split[0][x])
 	{
-		if ((*game)->map.m_split[0][x] != '1')
+		if ((*game)->map->m_split[0][x] != '1')
 			_err(*game, "There's error first line map");
 		x++;
 	}
-	(*game)->map.width = x;
+	(*game)->map->width = x;
 }
 
 void	_al(char mid, char first_col, t_game *game)
@@ -40,24 +40,24 @@ void	check_map_m(t_game **game)
 	int	x;
 
 	i = 1;
-	while ((*game)->map.m_split[i])
+	while ((*game)->map->m_split[i])
 	{
 		x = 0;
-		while ((*game)->map.m_split[i][x])
+		while ((*game)->map->m_split[i][x])
 		{
-			_al((*game)->map.m_split[i][x], (*game)->map.m_split[i][0], *game);
-			if ((*game)->map.m_split[i][x + 1] == '\0')
-				if ((*game)->map.m_split[i][x] != '1')
+			_al((*game)->map->m_split[i][x], (*game)->map->m_split[i][0], *game);
+			if ((*game)->map->m_split[i][x + 1] == '\0')
+				if ((*game)->map->m_split[i][x] != '1')
 					_err(*game, "Error last column mid");
-			if ((*game)->map.m_split[i][x] == 'P')
+			if ((*game)->map->m_split[i][x] == 'P')
 				(*game)->player++;
-			if ((*game)->map.m_split[i][x] == 'E')
+			if ((*game)->map->m_split[i][x] == 'E')
 				(*game)->exit++;
-			if ((*game)->map.m_split[i][x] == 'C')
+			if ((*game)->map->m_split[i][x] == 'C')
 				(*game)->n_coins++;
 			x++;
 		}
-		if (x != (*game)->map.width)
+		if (x != (*game)->map->width)
 			_err(*game, "Lines are not equal");
 		i++;
 	}
@@ -68,15 +68,15 @@ void	check_map_b(t_game **game)
 	int	x;
 	int	i;
 
-	i = (*game)->map.height - 1;
+	i = (*game)->map->height - 1;
 	x = 0;
-	while ((*game)->map.m_split[i][x])
+	while ((*game)->map->m_split[i][x])
 	{
-		if ((*game)->map.m_split[i][x] != '1')
+		if ((*game)->map->m_split[i][x] != '1')
 			_err(*game, "There's error first line map");
 		x++;
 	}
-	if (x != (*game)->map.width)
+	if (x != (*game)->map->width)
 		_err(*game, "There's error lines are no equal");
 }
 
@@ -89,17 +89,17 @@ int	check_map(t_game *game)
 	if (fd < 0)
 		return (0);
 	str = get_next_line(fd);
-	game->map.map = ft_strdup("");
+	game->map->map = ft_strdup("");
 	while (str)
 	{
-		game->map.map = ft_strjoin_gnl(game->map.map, str);
+		game->map->map = ft_strjoin_gnl(game->map->map, str);
 		free(str);
 		str = get_next_line(fd);
 	}
-	game->map.m_split = ft_split(game->map.map, '\n');
-	if (!(game->map.m_split))
+	game->map->m_split = ft_split(game->map->map, '\n');
+	if (!(game->map->m_split))
 		return (0);
-	game->map.height = count_words(game->map.map, '\n');
+	game->map->height = count_words(game->map->map, '\n');
 	check_map_t(&game);
 	check_map_b(&game);
 	check_map_m(&game);
