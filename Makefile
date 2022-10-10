@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+         #
+#    By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/25 16:40:54 by mealjnei          #+#    #+#              #
-#    Updated: 2022/10/05 18:00:14 by mealjnei         ###   ########.fr        #
+#    Updated: 2022/10/10 15:44:40 by mealjnei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,10 +41,11 @@ all:		${NAME}
 
 clean:
 		rm -rf $(NAME)
+	@ $(MAKE) fclean -sC $(LIBFT_PATH)
+	@ $(MAKE) clean -sC $(MLX_PATH)
 
 fclean:		clean
-	@ ${RM} ${NAME}
-	@ rm libmlx.a
+		@ ${RM} ${NAME}
 
 re:			fclean all
 

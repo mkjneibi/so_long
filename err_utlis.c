@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   err_utlis.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:42:10 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/10 13:43:10 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:54:34 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,12 @@ void	_err(t_game *game, char *str)
 		exit(EXIT_FAILURE);
 }
 
-t_map	*_init_map()
+void	_init(t_game *game, char **av)
 {
 	t_map	*map;
 
-	map->height = 0;
-	map->width = 1;
-	map->player = NULL;
-	map->coins = NULL;
-	map->door = NULL;
-	map->block = NULL;
-	map->wall = NULL;
-	return (map);
-}
-
-void	_init(t_game *game, char **av)
-{
-	// t_map	map;
-
 	game->av = av;
-	game->map = _init_map();
+	game->map = ft_calloc(1, sizeof(t_map));
 	game->player = 0;
 	game->exit = 0;
 	game->error = 0;

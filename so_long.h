@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:48:55 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/10 13:37:05 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/10 14:19:11 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,6 @@ typedef struct s_map
 	int		height;
 	char	**m_split;
 	char	*map;
-	void	*player;
-	void	*block;
-	void	*coins;
-	void	*wall;
-	void	*door;
 }			t_map;
 
 typedef struct s_game
@@ -56,6 +51,11 @@ typedef struct s_game
 	int			y;
 	int			p_x;
 	int			p_y;
+	void		*player_ptr;
+	void		*block_ptr;
+	void		*coins_ptr;
+	void		*wall_ptr;
+	void		*door_ptr;
 }				t_game;
 
 void	_err(t_game *game, char *str);
@@ -63,5 +63,13 @@ void	_init(t_game *game, char **av);
 int		check_map(t_game *game);
 int		exit_window(int key, t_game *game);
 void	check_err(t_game *game);
+void	plot_map(t_game *game);
+void	plotting(char c, t_game *game);
+void	plot_player(char c, t_game *game);
+void	_al(char mid, char first_col, t_game *game);
+void	check_map_t(t_game **game);
+void	check_map_m(t_game **game);
+void	check_map_b(t_game **game);
+
 
 #endif
