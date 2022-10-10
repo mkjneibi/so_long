@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   win_utlis.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/25 17:28:37 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/10 12:32:58 by mealjnei         ###   ########.fr       */
+/*   Created: 2022/10/05 15:45:08 by mealjnei          #+#    #+#             */
+/*   Updated: 2022/10/05 15:45:09 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	so_long(t_game *game)
+int	exit_window(int key, t_game *game)
 {
-	game->mlx = mlx_init();
-	game->win = mlx_new_window(game->mlx, 800, 700, "42game");
-	mlx_hook(game->win, 2, 1L << 0, exit_window, game);
-	mlx_loop(game->mlx);
-}
-
-int	main(int ac, char **av)
-{
-	t_game	game;
-
-	if (ac != 2)
-	{
-		ft_putendl_fd("Enter the map name \n", 2);
-		return (0);
-	}
-	_init(&game, av);
-	if (!(check_map(&game)))
-	{
-		_err(&game, "Invalid map \n");
-		return (0);
-	}
-	so_long(&game);
+	int x = 25;
+	if (key == 53)
+		exit(1);
+	// if (key == A_KEY)
+	// if (key == D_KEY)
+	// if (key == W_KEY)
+	// if (key == S_KEY)
+	return (0);
 }

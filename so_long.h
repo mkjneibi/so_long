@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:48:55 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/09/30 17:37:47 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/10 12:35:36 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,33 @@
 typedef struct s_map
 {
 	int		width;
-	int 	height;
-	char	**map_split;
+	int		height;
+	char	**m_split;
 	char	*map;
 	void	*player;
 	void	*block;
 	void	*coins;
 	void	*wall;
 	void	*door;
-}	       t_map;
+}			t_map;
 
-typedef struct	s_game
+typedef struct s_game
 {
 	void		*mlx;
-    void		*win;
+	void		*win;
 	t_map		map;
 	char		**av;
-	int	 		n_coins;
-	int		 	end_game;
+	int			n_coins;
+	int			end_game;
 	int			player;
-	int		 	exit;
+	int			exit;
 	int			error;
-}           t_game;
+}				t_game;
+
+void	_err(t_game *game, char *str);
+void	_init(t_game *game, char **av);
+int		check_map(t_game *game);
+int		exit_window(int key, t_game *game);
+void	check_err(t_game *game);
 
 #endif

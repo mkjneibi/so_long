@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+         #
+#    By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/25 16:40:54 by mealjnei          #+#    #+#              #
-#    Updated: 2022/09/28 16:09:33 by mealjnei         ###   ########.fr        #
+#    Updated: 2022/10/05 18:00:14 by mealjnei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME	= so_long
 CC		= gcc
 RM		= rm -f
 
-SRCS        = so_long.c
+SRCS        = so_long.c err_utlis.c win_utlis.c map_utlis.c
 LIBFT_PATH	=	./Libft
 
 LIBFT	=		./Libft/libft.a
