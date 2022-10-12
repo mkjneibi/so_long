@@ -6,7 +6,7 @@
 #    By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/25 16:40:54 by mealjnei          #+#    #+#              #
-#    Updated: 2022/10/10 15:44:40 by mealjnei         ###   ########.fr        #
+#    Updated: 2022/10/11 17:50:59 by mealjnei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME	= so_long
 CC		= gcc
 RM		= rm -f
 
-SRCS        = so_long.c err_utlis.c win_utlis.c map_utlis.c
+SRCS        = so_long.c err_utlis.c win_utlis.c map_utlis.c xy_moves.c
 LIBFT_PATH	=	./Libft
 
 LIBFT	=		./Libft/libft.a
@@ -40,7 +40,7 @@ $(NAME): ${OBJS}
 all:		${NAME}
 
 clean:
-		rm -rf $(NAME)
+		rm -rf $(OBJS)
 	@ $(MAKE) fclean -sC $(LIBFT_PATH)
 	@ $(MAKE) clean -sC $(MLX_PATH)
 

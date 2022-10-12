@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:48:55 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/10 14:19:11 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/11 17:59:20 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,30 @@ typedef struct s_game
 	void		*coins_ptr;
 	void		*wall_ptr;
 	void		*door_ptr;
+	int			n_steps;
 }				t_game;
 
 void	_err(t_game *game, char *str);
 void	_init(t_game *game, char **av);
-int		check_map(t_game *game);
-int		exit_window(int key, t_game *game);
 void	check_err(t_game *game);
-void	plot_map(t_game *game);
-void	plotting(char c, t_game *game);
-void	plot_player(char c, t_game *game);
-void	_al(char mid, char first_col, t_game *game);
 void	check_map_t(t_game **game);
+void	_al(char mid, char first_col, t_game *game);
 void	check_map_m(t_game **game);
 void	check_map_b(t_game **game);
-
+int		check_map(t_game *game);
+void	plot_player(char c, t_game *game);
+void	plotting(char c, t_game *game);
+void	plot_map(t_game *game);
+void	so_long(t_game *game);
+int		exit_window(int key, t_game *game);
+void	first_key(int key, t_game *game);
+void	second_key(int key, t_game *game);
+void	third_key(int key, t_game *game);
+void	fourth_key(int key, t_game *game);
+void    _x_moves_down(t_game *game);
+void    _x_moves_up(t_game *game);
+void    _y_moves_down(t_game *game);
+void    _y_moves_up(t_game *game);
+void	end_game(t_game *game);
 
 #endif

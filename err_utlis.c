@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:42:10 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/10 13:54:34 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/11 17:25:15 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	_init(t_game *game, char **av)
 	game->y = 0;
 	game->p_x = 0;
 	game->p_y = 0;
+	game->n_steps = 0;
 }
 
 void	check_err(t_game *game)
