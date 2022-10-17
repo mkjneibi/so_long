@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 17:28:37 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/12 12:25:31 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/17 17:13:12 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,11 @@ int	main(int ac, char **av)
 	if (!(check_map(&game)))
 	{
 		_err(&game, "Invalid map \n");
+		return (0);
+	}
+	if (check_map3(&game))
+	{
+		_err(&game, "Invalid path \n");
 		return (0);
 	}
 	so_long(&game);

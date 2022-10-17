@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:48:55 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/11 17:59:20 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/17 16:35:53 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define SO_LONG_H
 
 # include <stdio.h>
-# include "libft/includes/libft.h"
-# include "mlx/mlx.h"
+# include "../libft/includes/libft.h"
+# include "../mlx/mlx.h"
 
 # ifdef __MACH__
 #  define A_KEY 0
@@ -23,7 +23,6 @@
 #  define S_KEY 1
 #  define W_KEY 13
 #  define ESC_KEY 53
-#  define SPACE_KEY 49
 # endif
 
 typedef struct s_map
@@ -57,10 +56,15 @@ typedef struct s_game
 	void		*wall_ptr;
 	void		*door_ptr;
 	int			n_steps;
+	int			hash_map[256][256];
+	int			exit_x;
+	int			exit_y;
 }				t_game;
 
+int		check_map3(t_game *game);
 void	_err(t_game *game, char *str);
-void	_init(t_game *game, char **av);
+void	my_quit(t_game *game);
+void	my_free(t_game *game);
 void	check_err(t_game *game);
 void	check_map_t(t_game **game);
 void	_al(char mid, char first_col, t_game *game);
@@ -72,14 +76,12 @@ void	plotting(char c, t_game *game);
 void	plot_map(t_game *game);
 void	so_long(t_game *game);
 int		exit_window(int key, t_game *game);
-void	first_key(int key, t_game *game);
-void	second_key(int key, t_game *game);
-void	third_key(int key, t_game *game);
-void	fourth_key(int key, t_game *game);
 void    _x_moves_down(t_game *game);
 void    _x_moves_up(t_game *game);
 void    _y_moves_down(t_game *game);
 void    _y_moves_up(t_game *game);
 void	end_game(t_game *game);
+void	_init(t_game *game, char **av);
+
 
 #endif

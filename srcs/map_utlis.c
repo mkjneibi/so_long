@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utlis.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:45:41 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/10 13:41:01 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/17 15:47:17 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,32 +34,39 @@ void	_al(char mid, char first_col, t_game *game)
 		_err(game, "There's invalid char in the map");
 }
 
+void	exit_cords(t_game ***game, int x, int y)
+{
+	(**game)->exit_x = x;
+	(**game)->exit_y = y;
+	(**game)->exit++;
+}
+
 void	check_map_m(t_game **game)
 {
-	int	i;
+	int	y;
 	int	x;
 
-	i = 1;
-	while ((*game)->map->m_split[i])
+	y = 1;
+	while ((*game)->map->m_split[y])
 	{
 		x = 0;
-		while ((*game)->map->m_split[i][x])
+		while ((*game)->map->m_split[y][x])
 		{
-			_al((*game)->map->m_split[i][x], (*game)->map->m_split[i][0], *game);
-			if ((*game)->map->m_split[i][x + 1] == '\0')
-				if ((*game)->map->m_split[i][x] != '1')
+			_al((*game)->map->m_split[y][x], (*game)->map->m_split[y][0], *game);
+			if ((*game)->map->m_split[y][x + 1] == '\0')
+				if ((*game)->map->m_split[y][x] != '1')
 					_err(*game, "Error last column mid");
-			if ((*game)->map->m_split[i][x] == 'P')
+			if ((*game)->map->m_split[y][x] == 'P')
 				(*game)->player++;
-			if ((*game)->map->m_split[i][x] == 'E')
-				(*game)->exit++;
-			if ((*game)->map->m_split[i][x] == 'C')
+			if ((*game)->map->m_split[y][x] == 'E')
+				exit_cords(&game, x, y);
+			if ((*game)->map->m_split[y][x] == 'C')
 				(*game)->n_coins++;
 			x++;
 		}
 		if (x != (*game)->map->width)
 			_err(*game, "Lines are not equal");
-		i++;
+		y++;
 	}
 }
 
@@ -104,5 +111,6 @@ int	check_map(t_game *game)
 	check_map_b(&game);
 	check_map_m(&game);
 	check_err(game);
+	free(str);
 	return (1);
 }

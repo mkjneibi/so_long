@@ -6,16 +6,42 @@
 /*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:42:10 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/11 17:25:15 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/17 14:13:23 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+void	my_free(t_game *game)
+{
+	int i;
+
+	i = 0;
+	if (game->map->m_split)
+	{
+		while (game->map->m_split[i])
+		{
+			free(game->map->m_split[i]);
+			game->map->m_split[i] = NULL;
+			i++;
+		}
+	}
+	if (game->map->map)
+	{
+		free(game->map->map);
+		game->map->map = NULL;
+	}
+	if (game->map)
+	{
+		free(game->map);
+		game->map = NULL;
+	}
+}
+
 void	_err(t_game *game, char *str)
 {
 		ft_putendl_fd(str, 2);
-		// freestruct;
+		my_free(game);
 		exit(EXIT_FAILURE);
 }
 
