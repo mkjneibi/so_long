@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 17:28:37 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/17 17:13:12 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/17 17:44:54 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ void	plot_map(t_game *game)
 
 	x = 0;
 	y = 0;
-	while (game->map->m_split[y])
+	while (game->map->m_s[y])
 	{
 		x = 0;
 		game->x = 0;
-		while (game->map->m_split[y][x])
+		while (game->map->m_s[y][x])
 		{
-			plotting(game->map->m_split[y][x], game);
+			plotting(game->map->m_s[y][x], game);
 			game->x += 64;
 			x++;
 		}
@@ -83,15 +83,15 @@ void	so_long(t_game *game)
 	game->win = mlx_new_window(game->mlx, width, height, "42game");
 	mlx_hook(game->win, 2, 1L << 0, exit_window, game);
 	game->player_ptr = mlx_xpm_file_to_image(game->mlx, "./img/mario.xpm",
-		&game->i_width, &game->i_height);
+			&game->i_width, &game->i_height);
 	game->block_ptr = mlx_xpm_file_to_image(game->mlx, "./img/block.xpm",
-		&game->i_width, &game->i_height);
+			&game->i_width, &game->i_height);
 	game->coins_ptr = mlx_xpm_file_to_image(game->mlx, "./img/coins.xpm",
-		&game->i_width, &game->i_height);
+			&game->i_width, &game->i_height);
 	game->wall_ptr = mlx_xpm_file_to_image(game->mlx, "./img/wall.xpm",
-		&game->i_width, &game->i_height);
+			&game->i_width, &game->i_height);
 	game->door_ptr = mlx_xpm_file_to_image(game->mlx, "./img/door.xpm",
-		&game->i_width, &game->i_height);
+			&game->i_width, &game->i_height);
 	plot_map(game);
 	mlx_loop(game->mlx);
 }

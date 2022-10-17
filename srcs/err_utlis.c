@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   err_utlis.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:42:10 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/17 14:13:23 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/17 17:34:52 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	my_free(t_game *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	if (game->map->m_split)
+	if (game->map->m_s)
 	{
-		while (game->map->m_split[i])
+		while (game->map->m_s[i])
 		{
-			free(game->map->m_split[i]);
-			game->map->m_split[i] = NULL;
+			free(game->map->m_s[i]);
+			game->map->m_s[i] = NULL;
 			i++;
 		}
 	}
@@ -40,15 +40,13 @@ void	my_free(t_game *game)
 
 void	_err(t_game *game, char *str)
 {
-		ft_putendl_fd(str, 2);
-		my_free(game);
-		exit(EXIT_FAILURE);
+	ft_putendl_fd(str, 2);
+	my_free(game);
+	exit(EXIT_FAILURE);
 }
 
 void	_init(t_game *game, char **av)
 {
-	t_map	*map;
-
 	game->av = av;
 	game->map = ft_calloc(1, sizeof(t_map));
 	game->player = 0;

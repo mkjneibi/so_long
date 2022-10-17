@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   xy_moves.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:52:25 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/17 14:14:39 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/17 17:45:58 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    _x_moves_down(t_game *game)
+void	_x_moves_down(t_game *game)
 {
 	mlx_put_image_to_window(game->mlx, game->win,
 		game->block_ptr, game->p_x, game->p_y);
-	game->map->m_split[(game->p_y) / 64][(game->p_x - 64) / 64] = '0';
+	game->map->m_s[(game->p_y) / 64][(game->p_x - 64) / 64] = '0';
 	game->p_x -= 64;
 	mlx_put_image_to_window(game->mlx, game->win,
 		game->block_ptr, game->p_x, game->p_y);
@@ -26,11 +26,11 @@ void    _x_moves_down(t_game *game)
 	game->n_steps++;
 }
 
-void    _x_moves_up(t_game *game)
+void	_x_moves_up(t_game *game)
 {
 	mlx_put_image_to_window(game->mlx, game->win,
 		game->block_ptr, game->p_x, game->p_y);
-	game->map->m_split[(game->p_y) / 64][(game->p_x + 64) / 64] = '0';
+	game->map->m_s[(game->p_y) / 64][(game->p_x + 64) / 64] = '0';
 	game->p_x += 64;
 	mlx_put_image_to_window(game->mlx, game->win,
 		game->block_ptr, game->p_x, game->p_y);
@@ -40,11 +40,11 @@ void    _x_moves_up(t_game *game)
 	game->n_steps++;
 }
 
-void    _y_moves_down(t_game *game)
+void	_y_moves_down(t_game *game)
 {
 	mlx_put_image_to_window(game->mlx, game->win,
 		game->block_ptr, game->p_x, game->p_y);
-	game->map->m_split[(game->p_y + 64) / 64][(game->p_x) / 64] = '0';
+	game->map->m_s[(game->p_y + 64) / 64][(game->p_x) / 64] = '0';
 	game->p_y += 64;
 	mlx_put_image_to_window(game->mlx, game->win,
 		game->block_ptr, game->p_x, game->p_y);
@@ -54,11 +54,11 @@ void    _y_moves_down(t_game *game)
 	game->n_steps++;
 }
 
-void    _y_moves_up(t_game *game)
+void	_y_moves_up(t_game *game)
 {
 	mlx_put_image_to_window(game->mlx, game->win,
 		game->block_ptr, game->p_x, game->p_y);
-	game->map->m_split[(game->p_y - 64) / 64][(game->p_x) / 64] = '0';
+	game->map->m_s[(game->p_y - 64) / 64][(game->p_x) / 64] = '0';
 	game->p_y -= 64;
 	mlx_put_image_to_window(game->mlx, game->win,
 		game->block_ptr, game->p_x, game->p_y);

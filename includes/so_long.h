@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:48:55 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/17 16:35:53 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/17 17:53:58 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_map
 {
 	int		width;
 	int		height;
-	char	**m_split;
+	char	**m_s;
 	char	*map;
 }			t_map;
 
@@ -76,12 +76,11 @@ void	plotting(char c, t_game *game);
 void	plot_map(t_game *game);
 void	so_long(t_game *game);
 int		exit_window(int key, t_game *game);
-void    _x_moves_down(t_game *game);
-void    _x_moves_up(t_game *game);
-void    _y_moves_down(t_game *game);
-void    _y_moves_up(t_game *game);
+void	_x_moves_down(t_game *game);
+void	_x_moves_up(t_game *game);
+void	_y_moves_down(t_game *game);
+void	_y_moves_up(t_game *game);
 void	end_game(t_game *game);
 void	_init(t_game *game, char **av);
-
 
 #endif
