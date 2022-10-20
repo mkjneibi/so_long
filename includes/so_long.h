@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:48:55 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/17 17:53:58 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/17 18:12:27 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ typedef struct s_game
 	void		*door_ptr;
 	int			n_steps;
 	int			hash_map[256][256];
-	int			exit_x;
-	int			exit_y;
 }				t_game;
 
 int		check_map3(t_game *game);

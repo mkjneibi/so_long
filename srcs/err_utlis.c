@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:42:10 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/17 17:34:52 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/17 18:17:49 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	_err(t_game *game, char *str)
 
 void	_init(t_game *game, char **av)
 {
+	if (ft_strnstr())
 	game->av = av;
 	game->map = ft_calloc(1, sizeof(t_map));
 	game->player = 0;

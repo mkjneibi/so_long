@@ -6,7 +6,7 @@
 #    By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/25 16:40:54 by mealjnei          #+#    #+#              #
-#    Updated: 2022/10/17 17:51:04 by mealjnei         ###   ########.fr        #
+#    Updated: 2022/10/17 18:13:29 by mealjnei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME	= so_long
 CC		= gcc
 RM		= rm -f
 
-SRCS        = srcs/so_long.c srcs/err_utlis.c srcs/win_utlis.c srcs/map_utlis.c srcs/xy_moves.c srcs/valid_check.c srcs/extra_util.c
+SRCS        = srcs/so_long.c srcs/err_utlis.c srcs/win_utlis.c srcs/map_utlis.c srcs/xy_moves.c srcs/valid_check.c
 LIBFT_PATH	=	./Libft
 
 LIBFT	=		./Libft/libft.a

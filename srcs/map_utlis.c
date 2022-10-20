@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:45:41 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/17 17:53:05 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/17 18:13:18 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,12 @@ void	check_map_t(t_game **game)
 	(*game)->map->width = x;
 }
 
-void	exit_cords(t_game ***game, int x, int y)
+void	_al(char mid, char first_col, t_game *game)
 {
-	(**game)->exit_x = x;
-	(**game)->exit_y = y;
-	(**game)->exit++;
+	if (first_col != '1')
+		_err(game, "There's error first line map");
+	if (mid != '1' && mid != '0' && mid != 'C' && mid != 'P' && mid != 'E')
+		_err(game, "There's invalid char in the map");
 }
 
 void	check_map_m(t_game **game)
@@ -51,7 +52,7 @@ void	check_map_m(t_game **game)
 			if ((*game)->map->m_s[y][x] == 'P')
 				(*game)->player++;
 			if ((*game)->map->m_s[y][x] == 'E')
-				exit_cords(&game, x, y);
+				(*game)->exit++;
 			if ((*game)->map->m_s[y][x] == 'C')
 				(*game)->n_coins++;
 			x++;
