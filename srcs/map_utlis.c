@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_utlis.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:45:41 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/23 13:54:04 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/23 14:06:54 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	check_map_t(t_game **game)
-{
-	int	x;
-
-	x = 0;
-	while ((*game)->map->m_s[0][x])
-	{
-		if ((*game)->map->m_s[0][x] != '1')
-			_err(*game, "There's error first line map");
-		x++;
-	}
-	(*game)->map->width = x;
-}
 
 void	_al(char mid, char first_col, t_game *game)
 {
@@ -80,6 +66,24 @@ void	check_map_b(t_game **game)
 		_err(*game, "There's error lines are no equal");
 }
 
+t_game	*check_map_t(t_game *game)
+{
+	int	x;
+
+	x = 0;
+	while (game->map->m_s[0][x])
+	{
+		if (game->map->m_s[0][x] != '1')
+			_err(game, "There's error first line map");
+		x++;
+	}
+	game->map->width = x;
+	check_map_b(&game);
+	check_map_m(&game);
+	check_err(game);
+	return (game);
+}
+
 int	check_map(t_game *game)
 {
 	char	*str;
@@ -93,6 +97,8 @@ int	check_map(t_game *game)
 	while (str)
 	{
 		game->map->map = ft_strjoin_gnl(game->map->map, str);
+		if (!(game->map->map))
+			return (0);
 		free(str);
 		str = get_next_line(fd);
 	}
@@ -100,10 +106,7 @@ int	check_map(t_game *game)
 	if (!(game->map->m_s))
 		return (0);
 	game->map->height = count_words(game->map->map, '\n');
-	check_map_t(&game);
-	check_map_b(&game);
-	check_map_m(&game);
-	check_err(game);
+	game = check_map_t(game);
 	close(fd);
 	free(str);
 	return (1);

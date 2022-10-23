@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:48:55 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/21 16:31:26 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/23 14:05:29 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	_err(t_game *game, char *str);
 void	my_quit(t_game *game);
 void	my_free(t_game *game);
 void	check_err(t_game *game);
-void	check_map_t(t_game **game);
 void	check_map_m(t_game **game);
 void	check_map_b(t_game **game);
 int		check_map(t_game *game);
