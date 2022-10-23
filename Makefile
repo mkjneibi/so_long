@@ -3,19 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+         #
+#    By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/25 16:40:54 by mealjnei          #+#    #+#              #
-#    Updated: 2022/10/17 18:13:29 by mealjnei         ###   ########.fr        #
+#    Updated: 2022/10/20 13:52:37 by mealjnei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
 NAME	= so_long
 CC		= gcc
+CFLAGS	= -Wall -Wextra -Werror
 RM		= rm -f
 
-SRCS        = srcs/so_long.c srcs/err_utlis.c srcs/win_utlis.c srcs/map_utlis.c srcs/xy_moves.c srcs/valid_check.c
+SRCS        = srcs/so_long.c srcs/err_utlis.c \
+				srcs/win_utlis.c srcs/map_utlis.c \
+				srcs/xy_moves.c srcs/valid_check.c
 LIBFT_PATH	=	./Libft
 
 LIBFT	=		./Libft/libft.a
@@ -23,13 +25,12 @@ MLX	=	./mlx/libmlx.a
 
 MLX_PATH	=	./mlx
 INCLUDES =	-I ./includes
-CFLAGS	= -Wall -Wextra -Werror -g3
 
 MLX_FLAGS	=	-framework OpenGL -framework AppKit
 
 OBJS        = $(SRCS:.c=.o)
 
-.c.o:
+%.o : %.c
 	${CC} ${CFLAGS} $(INCLUDES) -c $< -o ${<:.c=.o}
 
 $(NAME): ${OBJS}

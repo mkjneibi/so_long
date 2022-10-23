@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:48:55 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/17 18:12:27 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/21 16:31:26 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,26 +59,32 @@ typedef struct s_game
 	int			hash_map[256][256];
 }				t_game;
 
-int		check_map3(t_game *game);
 void	_err(t_game *game, char *str);
 void	my_quit(t_game *game);
 void	my_free(t_game *game);
 void	check_err(t_game *game);
 void	check_map_t(t_game **game);
-void	_al(char mid, char first_col, t_game *game);
 void	check_map_m(t_game **game);
 void	check_map_b(t_game **game);
 int		check_map(t_game *game);
+int		check_map3(t_game *game);
+int		check_valid_path(int y, int x, t_game *game);
+int		valid(int x, int y, t_game *game);
+void	_al(char mid, char first_col, t_game *game);
 void	plot_player(char c, t_game *game);
 void	plotting(char c, t_game *game);
 void	plot_map(t_game *game);
 void	so_long(t_game *game);
+void	_init(t_game *game, char **av);
 int		exit_window(int key, t_game *game);
+void	end_game(t_game *game);
 void	_x_moves_down(t_game *game);
 void	_x_moves_up(t_game *game);
 void	_y_moves_down(t_game *game);
 void	_y_moves_up(t_game *game);
-void	end_game(t_game *game);
-void	_init(t_game *game, char **av);
+void	a_key(t_game *game);
+void	d_key(t_game *game);
+void	s_key(t_game *game);
+void	w_key(t_game *game);
 
 #endif

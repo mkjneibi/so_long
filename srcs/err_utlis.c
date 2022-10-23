@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   err_utlis.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:42:10 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/17 18:17:49 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/23 13:52:07 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,15 @@ void	_err(t_game *game, char *str)
 
 void	_init(t_game *game, char **av)
 {
-	if (ft_strnstr())
+	char	*str;
+
+	str = ft_strnstr(av[1], ".ber", ft_strlen(av[1]));
+	str += 4;
+	if (ft_strlen(str))
+	{
+		ft_putendl_fd("Wrong filetype", STDERR_FILENO);
+		exit(EXIT_FAILURE);
+	}
 	game->av = av;
 	game->map = ft_calloc(1, sizeof(t_map));
 	game->player = 0;

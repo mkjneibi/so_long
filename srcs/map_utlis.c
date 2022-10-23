@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utlis.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:45:41 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/17 18:13:18 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/23 13:54:04 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ int	check_map(t_game *game)
 	check_map_b(&game);
 	check_map_m(&game);
 	check_err(game);
+	close(fd);
 	free(str);
 	return (1);
 }
