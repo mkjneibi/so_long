@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utlis.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:45:41 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/23 14:06:54 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/23 14:31:52 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ t_game	*check_map_t(t_game *game)
 		x++;
 	}
 	game->map->width = x;
+	game->map->height = count_words(game->map->map, '\n');
 	check_map_b(&game);
 	check_map_m(&game);
 	check_err(game);
@@ -93,6 +94,8 @@ int	check_map(t_game *game)
 	if (fd < 0)
 		return (0);
 	str = get_next_line(fd);
+	if (!str)
+		return (0);
 	game->map->map = ft_strdup("");
 	while (str)
 	{
@@ -105,7 +108,6 @@ int	check_map(t_game *game)
 	game->map->m_s = ft_split(game->map->map, '\n');
 	if (!(game->map->m_s))
 		return (0);
-	game->map->height = count_words(game->map->map, '\n');
 	game = check_map_t(game);
 	close(fd);
 	free(str);

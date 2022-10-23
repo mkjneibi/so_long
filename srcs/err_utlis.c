@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   err_utlis.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:42:10 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/23 14:11:50 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/23 14:30:18 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	_init(t_game *game, char **av)
 
 	str = ft_strnstr(av[1], ".ber", ft_strlen(av[1]));
 	if (!str)
-		exit(1);
+		exit(EXIT_FAILURE);
 	str += 4;
 	if (ft_strlen(str))
 	{

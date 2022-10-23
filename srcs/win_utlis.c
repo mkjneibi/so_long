@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   win_utlis.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:45:08 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/17 17:42:29 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/23 14:34:12 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	a_key(t_game *game)
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->player_ptr, game->p_x, game->p_y);
 		game->n_steps++;
-		ft_printf("%d\n", game->n_steps);
 	}
+	ft_printf("%d\n", game->n_steps);
 }
 
 void	d_key(t_game *game)
@@ -48,8 +48,8 @@ void	d_key(t_game *game)
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->player_ptr, game->p_x, game->p_y);
 		game->n_steps++;
-		ft_printf("%d\n", game->n_steps);
 	}
+	ft_printf("%d\n", game->n_steps);
 }
 
 void	s_key(t_game *game)
@@ -68,8 +68,8 @@ void	s_key(t_game *game)
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->player_ptr, game->p_x, game->p_y);
 		game->n_steps++;
-		ft_printf("%d\n", game->n_steps);
 	}
+	ft_printf("%d\n", game->n_steps);
 }
 
 void	w_key(t_game *game)
@@ -88,8 +88,8 @@ void	w_key(t_game *game)
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->player_ptr, game->p_x, game->p_y);
 		game->n_steps++;
-		ft_printf("%d\n", game->n_steps);
 	}
+	ft_printf("%d\n", game->n_steps);
 }
 
 int	exit_window(int key, t_game *game)
