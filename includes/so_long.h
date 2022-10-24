@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:48:55 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/24 12:08:59 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/24 12:46:08 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	plotting(char c, t_game *game);
 void	plot_map(t_game *game);
 void	so_long(t_game *game);
 void	_init(t_game *game, char **av);
+int		movement_handle(int key, t_game *game);
 int		exit_window(int key, t_game *game);
 void	end_game(t_game *game);
 void	_x_moves_down(t_game *game);

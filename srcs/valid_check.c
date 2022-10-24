@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 17:38:04 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/24 12:08:45 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/24 12:46:21 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,11 @@ void	player_utlis(t_game *game, int x, int y)
 	game->player++;
 	game->player_x = x;
 	game->player_y = y;
+}
+
+int	exit_window(int key, t_game *game)
+{
+	if (key == ESC_KEY)
+		esc_err(game, "ESC");
+	return (0);
 }

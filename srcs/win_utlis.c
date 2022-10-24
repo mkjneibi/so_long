@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:45:08 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/23 17:51:56 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/24 12:46:15 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,8 @@ void	w_key(t_game *game)
 	ft_printf("%d\n", game->n_steps);
 }
 
-int	exit_window(int key, t_game *game)
+int	movement_handle(int key, t_game *game)
 {
-	if (key == ESC_KEY)
-		esc_err(game, "ESC");
 	if (key == A_KEY)
 		a_key(game);
 	if (key == D_KEY)
