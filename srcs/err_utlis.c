@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:42:10 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/23 14:30:18 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/23 17:51:20 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,19 @@ void	_err(t_game *game, char *str)
 {
 	ft_putendl_fd(str, 2);
 	my_free(game);
+	exit(EXIT_FAILURE);
+}
+
+void	esc_err(t_game *game, char *str)
+{
+	ft_putendl_fd(str, 2);
+	my_free(game);
+	mlx_destroy_image(game->mlx, game->wall_ptr);
+	mlx_destroy_image(game->mlx, game->player_ptr);
+	mlx_destroy_image(game->mlx, game->coins_ptr);
+	mlx_destroy_image(game->mlx, game->door_ptr);
+	mlx_destroy_image(game->mlx, game->block_ptr);
+	mlx_destroy_window(game->mlx, game->win);
 	exit(EXIT_FAILURE);
 }
 

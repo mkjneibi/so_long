@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 17:38:04 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/17 17:45:32 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/24 12:08:45 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,16 @@ int	check_map3(t_game *game)
 		}
 		y++;
 	}
-	x = 1;
-	y = 1;
+	x = game->player_x;
+	y = game->player_y;
 	if (check_valid_path(y, x, game))
 		return (0);
 	return (1);
+}
+
+void	player_utlis(t_game *game, int x, int y)
+{
+	game->player++;
+	game->player_x = x;
+	game->player_y = y;
 }

@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:45:41 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/23 14:31:52 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/24 12:11:28 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	check_map_m(t_game **game)
 				if ((*game)->map->m_s[y][x] != '1')
 					_err(*game, "Error last column mid");
 			if ((*game)->map->m_s[y][x] == 'P')
-				(*game)->player++;
+				player_utlis(*game, x, y);
 			if ((*game)->map->m_s[y][x] == 'E')
 				(*game)->exit++;
 			if ((*game)->map->m_s[y][x] == 'C')
@@ -105,11 +105,11 @@ int	check_map(t_game *game)
 		free(str);
 		str = get_next_line(fd);
 	}
+	close(fd);
+	free(str);
 	game->map->m_s = ft_split(game->map->map, '\n');
 	if (!(game->map->m_s))
 		return (0);
 	game = check_map_t(game);
-	close(fd);
-	free(str);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:45:08 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/23 14:34:12 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/23 17:51:56 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	w_key(t_game *game)
 int	exit_window(int key, t_game *game)
 {
 	if (key == ESC_KEY)
-		exit(1);
+		esc_err(game, "ESC");
 	if (key == A_KEY)
 		a_key(game);
 	if (key == D_KEY)

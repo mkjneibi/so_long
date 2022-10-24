@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:48:55 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/23 14:05:29 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/24 12:08:59 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,12 @@ typedef struct s_game
 	void		*door_ptr;
 	int			n_steps;
 	int			hash_map[256][256];
+	int			player_x;
+	int			player_y;
 }				t_game;
 
+void	esc_err(t_game *game, char *str);
+void	player_utlis(t_game *game, int x, int y);
 void	_err(t_game *game, char *str);
 void	my_quit(t_game *game);
 void	my_free(t_game *game);
