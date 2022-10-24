@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 17:28:37 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/24 12:26:07 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/24 12:35:03 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	so_long(t_game *game)
 	height = game->map->height * 64;
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, width, height, "42game");
-	mlx_hook(game->win, 2, 17, exit_window, game);
+	mlx_hook(game->win, 2, 1L << 0, exit_window, game);
 	game->player_ptr = mlx_xpm_file_to_image(game->mlx, "./img/mario.xpm",
 			&game->i_width, &game->i_height);
 	game->block_ptr = mlx_xpm_file_to_image(game->mlx, "./img/block.xpm",
