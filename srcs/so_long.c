@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 17:28:37 by mealjnei          #+#    #+#             */
-/*   Updated: 2022/10/24 12:48:39 by mealjnei         ###   ########.fr       */
+/*   Updated: 2022/10/30 14:18:14 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	so_long(t_game *game)
 
 	width = game->map->width * 64;
 	height = game->map->height * 64;
-	game->mlx = mlx_init();
+	game->mlx = mlx_init(); //initializes the MLX library & return NULL if failed
 	game->win = mlx_new_window(game->mlx, width, height, "42game");
 	mlx_hook(game->win, 2, 1L << 0, exit_window, game);
 	game->player_ptr = mlx_xpm_file_to_image(game->mlx, "./img/mario.xpm",
@@ -93,6 +93,7 @@ void	so_long(t_game *game)
 	game->door_ptr = mlx_xpm_file_to_image(game->mlx, "./img/door.xpm",
 			&game->i_width, &game->i_height);
 	plot_map(game);
+	mlx_key_hook(game->win, movement_handle, game);
 	mlx_loop(game->mlx);
 }
 
